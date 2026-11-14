@@ -6,4 +6,4 @@ def count_hangul(text: str) -> int:
     >>> count_hangul("가나다")
     3
     """
-    return sum(1 for ch in text if "가" <= ch < "힣")
+    return sum(1 for ch in text if "가" <= ch <= "힣")

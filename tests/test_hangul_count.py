@@ -10,7 +10,11 @@ class TestCountHangul(unittest.TestCase):
     def test_only_hangul(self):
         self.assertEqual(count_hangul("가나다"), 3)
 
-    # 이슈를 해결할 때: 버그를 재현하는 테스트를 이 아래에 추가하세요.
+    def test_last_syllable_is_counted(self):
+        self.assertEqual(count_hangul("힣"), 1)
+
+    def test_range_boundaries_are_inclusive(self):
+        self.assertEqual(count_hangul("가힣"), 2)
 
 
 if __name__ == "__main__":
