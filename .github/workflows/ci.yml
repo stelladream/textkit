@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  push:          # 모든 브랜치 — 기여자의 Fork 에서도 push 할 때마다 실행
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: 테스트 이미지 만들기
+        run: docker build -t textkit .
+      - name: 컨테이너에서 테스트 실행
+        run: docker run --rm textkit
