@@ -6,4 +6,4 @@ def word_count(text: str) -> int:
     >>> word_count("")
     0
     """
-    return len(text.split(" "))
+    return len(text.split())
